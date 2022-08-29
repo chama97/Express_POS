@@ -35,10 +35,10 @@ router.get("/", (req, res) => {
     })
 })
 
-router.get("/getOrderDetail/:id", (req, res) => {
+router.get("/:id", (req, res) => {
     var id=req.params.id
 
-    var getQuery = "SELECT * FROM orderDetail WHERE oID=?"
+    var getQuery = "SELECT * FROM orders WHERE oID=?"
     connection.query(getQuery,[id], (err, rows) => {
         if (err) console.log(err)
         res.send(rows)
